@@ -7,6 +7,7 @@ from .serializers import CarSerializer
 
 # <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
 
+# Test line for commit
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
