@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('<str:video_id>/', views.comment_list),
-    path('create/<str:video_id>/', views.comment_detail)
+    path('', views.comment_detail),
+    path('edit/<int:pk>/', views.edit_comment),
 ]
