@@ -13,8 +13,8 @@ from .models import Reply
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def reply_list(request):
+def reply_list(request, comment):
     if request.method == 'GET':
-        comments = Comment.objects.filter(user_id=request.comment.id)
-        serializer = ReplySerializer(comments, many=True)
+        reply = Reply.objects.filter(comment=comment)
+        serializer = ReplySerializer(reply, many=True)
         return Response(serializer.data)
