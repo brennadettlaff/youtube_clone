@@ -17,20 +17,20 @@ def comment_list(request, video_id):
         return Response(serializer.data)
 
 
-@api_view(['GET', 'POST'])
+@api_view(['POST','GET'])
 @permission_classes([IsAuthenticated])
-def comment_detail(request, video_id):
+def comment_detail(request):
     if request.method == 'POST':
-        comments = Comment.objects.filter(video_id=video_id)
-        serializer = CommentSerializer(comments, data=request.data)
+        serializer = CommentSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            print("Inside valid")
+            serializer.save(user = request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    # elif request.method == 'GET':
-    #     comments = Comment.objects.filter(user_id=request.user.id)
-    #     serializer = CommentSerializer(comments, many=True)
-    #     return Response(serializer.data)
+    elif request.method == 'GET':
+        comments = Comment.objects.filter(user_id=request.user.id)
+        serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
