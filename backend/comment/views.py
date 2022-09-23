@@ -5,7 +5,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CommentSerializer
 from .models import Comment
-
+from reply.models import Reply
+from reply.serializers import ReplySerializer
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
@@ -30,4 +31,12 @@ def comment_detail(request):
     elif request.method == 'GET':
         comments = Comment.objects.filter(user_id=request.user.id)
         serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def reply_list(request):
+    if request.method == 'GET':
+        comments = Comment.objects.filter(user_id=request.comment.id)
+        serializer = ReplySerializer(comments, many=True)
         return Response(serializer.data)
