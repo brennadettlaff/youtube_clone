@@ -2,5 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-        path('<int:comment>/', views.reply_list)
+        path('view/<int:comment>/', views.reply_list),
+        path('add/', views.reply_detail)
 ]
