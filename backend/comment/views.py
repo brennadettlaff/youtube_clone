@@ -28,6 +28,6 @@ def comment_detail(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'GET':
-        cars = Comment.objects.filter(user_id=request.user.id)
-        serializer = CommentSerializer(cars, many=True)
+        comments = Comment.objects.filter(user_id=request.user.id)
+        serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
