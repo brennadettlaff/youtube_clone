@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
@@ -9,9 +9,9 @@ from .models import Comment
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def comment_list(request):
+def comment_list(request, video_id):  
     if request.method == 'GET':
-        comments = Comment.objects.all()
+        comments = Comment.objects.filter(video_id=video_id)
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
 
