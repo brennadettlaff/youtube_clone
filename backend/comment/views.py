@@ -40,3 +40,16 @@ def reply_list(request):
         comments = Comment.objects.filter(user_id=request.comment.id)
         serializer = ReplySerializer(comments, many=True)
         return Response(serializer.data)
+
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def edit_comment(request, pk):
+    music = get_object_or_404(Comment, pk=pk)
+    if request.method == 'PUT':
+        serializer = CommentSerializer(music, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
+
