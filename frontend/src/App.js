@@ -20,7 +20,18 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
 
-  
+  const [searchedVids, setSearchedVids] = useState([]);
+
+  useEffect(() => {
+    fetchSearchedVideos();
+  },[]);
+
+  const fetchSearchedVideos = async () => {
+    let response = await axios.get("https://www.googleapis.com/youtube/v3/search?q=Bob Ross&key={YOUR API KEY}&part=snippet")
+    debugger
+    console.log("Youtube search response: ",response.data)
+    setSearchedVids(response.data.items)
+  };
 
   return (
     <div>
