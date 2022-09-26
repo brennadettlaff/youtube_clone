@@ -35,8 +35,8 @@ function App() {
 
   return (
     <div>
-      <VideoPage />
-      {/* <Navbar />
+      {/* <VideoPage /> */}
+      <Navbar />
       <Routes>
         <Route
           path="/"
@@ -49,7 +49,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
-      <Footer /> */}
+      <Footer />
     </div>
   );
 }
