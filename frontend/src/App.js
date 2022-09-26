@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import VideoPage from './components/VideoPage/VideoPage';
+import VideoPlayer from './components/VideoPlayer/VideoPlayer';
 
 
 // Pages Imports
@@ -20,23 +20,19 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
 
-  const [searchedVids, setSearchedVids] = useState([]);
 
-  useEffect(() => {
-    fetchSearchedVideos();
-  },[]);
 
-  const fetchSearchedVideos = async () => {
-    let response = await axios.get("https://www.googleapis.com/youtube/v3/search?q=Bob Ross&key={YOUR API KEY}&part=snippet")
-    debugger
-    console.log("Youtube search response: ",response.data)
-    setSearchedVids(response.data.items)
-  };
+    const [data, setData] = useState('M7lc1UVf-VE');
+
+
+    
 
   return (
     <div>
-      {/* <VideoPage /> */}
-      <Navbar />
+      
+      <VideoPlayer testVideo={data} />
+
+      {/* <Navbar />
       <Routes>
         <Route
           path="/"
