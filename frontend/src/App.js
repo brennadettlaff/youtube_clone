@@ -29,15 +29,10 @@ function App() {
 
   return (
     <div>
-<<<<<<< HEAD
-      <Navbar />
-      
-=======
       
       <VideoPlayer testVideo={data} />
 
       {/* <Navbar />
->>>>>>> 998597214579644b066930ea1357edef0486a9d9
       <Routes>
         <Route
           path="/"
