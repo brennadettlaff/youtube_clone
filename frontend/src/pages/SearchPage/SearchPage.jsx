@@ -4,7 +4,7 @@ import './SearchPage'
 
 
 const SearchPage = (props) => {
-
+  
   const [searchedVids, setSearchedVids] = useState([])
   
   let searchURL = "https://www.googleapis.com/youtube/v3/search?q=" + props.data + "&key=AIzaSyBQVFM2XjDbQQtS3T0MdPfoGmgcztrBD50&part=snippet"
