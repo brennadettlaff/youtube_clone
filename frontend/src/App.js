@@ -1,4 +1,3 @@
-// General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import React, { useState, useEffect } from 'react';
@@ -45,7 +44,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
