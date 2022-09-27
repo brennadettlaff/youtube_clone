@@ -11,7 +11,7 @@ const SearchPage = (props) => {
 
   useEffect(() => {
     fetchSearchedVideos();
-  }, []);
+  }, [props.data]);
 
   const fetchSearchedVideos = async () => {
     let response = await axios.get(searchURL)
