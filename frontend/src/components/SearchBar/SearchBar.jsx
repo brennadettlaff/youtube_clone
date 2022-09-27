@@ -3,7 +3,7 @@ import './SearchBar.css';
 
 const SearchBar = (props) => {
 
-    console.log(props.songs)
+    // console.log(props.data)
 
     const [search_term, setSearchTerm] = useState('');
 
