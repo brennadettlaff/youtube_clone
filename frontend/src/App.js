@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import VideoPlayer from './components/VideoPlayer/VideoPlayer';
 import SearchBar from "./components/SearchBar/SearchBar";
+import RelatedVideos from './components/RelatedVideos/RelatedVideos';
 
 
 // Pages Imports
@@ -40,7 +41,7 @@ function App() {
     <div>
       <SearchBar submittedSearchTerm={passedSearchTerm}/>
       <VideoPlayer testVideo={data} />
-
+      <RelatedVideos />
       <Navbar />
       <Routes>
         <Route path="/searchpage" element={<SearchPage data={data}/>}/>
