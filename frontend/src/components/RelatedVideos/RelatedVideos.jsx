@@ -1,25 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const RelatedVideos = (props) => {
     
+    let navigate = useNavigate();
+
     const [relatedVids, setRelatedVideos] = useState([])
 
-    let relatedVideo = "https://www.googleapis.com/youtube/v3/search?relatedToVideoId=" + props.testVideo + "&type=video&key=AIzaSyCkOwnACYtTMTuv-AY50DGVDGkVXZHg4TE"
+    let relatedVideo = "https://www.googleapis.com/youtube/v3/search?relatedToVideoId=" + props.testVideo + "&type=video&key=AIzaSyCkOwnACYtTMTuv-AY50DGVDGkVXZHg4TE&part=snippet"
     
     useEffect(() => {
         fetchRelatedVideos();
-    }, []); 
+    }, [props.data]); 
 
     const fetchRelatedVideos = async () => {
         let response = await axios.get(relatedVideo)
-        console.log("Youtube related response: ",response.data.items)
+        console.log("Youtube related response: ",response.data)
         setRelatedVideos(response.data.items)
 
-    // const handleClick = (selectedVideoId) => {
-    //     console.log(selectedVideoID)
-
-    // }
     };
     
 
@@ -28,14 +27,11 @@ const RelatedVideos = (props) => {
             {relatedVids.map((element) => {
                 {console.log(element.id.videoId)}
                 return (
-                <>
-                    <iframe id="ytplayer" 
-                    type="text/html" 
-                    width="640" 
-                    height="360"
-                    src={"https://www.youtube.com/embed/" + element.id.videoId + "?autoplay=1&origin=http://example.com"}
-                    frameBorder="0"></iframe> 
-                </>
+                    <>
+                    <img src = {element.snippet.thumbnails.default.url} onClick={() => navigate(`/videopage/${element.id.videoId}`)}/>
+                    <h4>{element.snippet.title}</h4>
+                    <h3>{element.id.videoId}</h3>
+                    </>
                 )    
             })}
         </div>
