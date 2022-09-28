@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import './SearchPage'
 
 
+
 const SearchPage = (props) => {
   
+  let navigate = useNavigate();
+
   const [searchedVids, setSearchedVids] = useState([])
-  
+
   let searchURL = "https://www.googleapis.com/youtube/v3/search?q=" + props.data + "&key=AIzaSyBQVFM2XjDbQQtS3T0MdPfoGmgcztrBD50&part=snippet"
 
   useEffect(() => {
@@ -15,31 +19,27 @@ const SearchPage = (props) => {
 
   const fetchSearchedVideos = async () => {
     let response = await axios.get(searchURL)
-    debugger
     console.log("Youtube search response: ",response.data)
     setSearchedVids(response.data.items)
   };
 
-
+  const onClick = (event) =>{
+    event.preventDefault();
+    navigate('/videopage');
+  };
 
 
   return (
     <div>
       {searchedVids.map((element) => {
         return (
-          <img src = {element.snippet.thumbnails.default.url} />
+          <div>
+            <img src = {element.snippet.thumbnails.default.url} onClick={onClick}/>
+            <h4>{element.snippet.title}</h4>
+          </div>
         )
       })}
-{/*       
-      {console.log(props.data)}
-      <iframe
-        id="ytplayer"
-        type="text/html"
-        width="640"
-        height="360"
-        src={"https://www.youtube.com/embed/" + props.data + "?autoplay=1&origin=http://example.com"}
-        frameborder="0"
-      ></iframe> */}
+
     </div>
   );
 }

@@ -14,14 +14,14 @@ const Reply = (props) => {
     //
 
     const [user, setUser] = useState('');
-    const [comment, setComment] = useState('');
+    const [comment_id, setComment_id] = useState('');
     const [text, setText] = useState('');
 
     function handleSubmit(event) {
         event.preventDefault();
         let newReply = {
             user: user,
-            comment: comment,
+            comment_id: comment_id,
             text: text,
         }
         console.log(newReply)
