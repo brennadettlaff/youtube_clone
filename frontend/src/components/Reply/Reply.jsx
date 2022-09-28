@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import ReplyForm from '../ReplyForm/ReplyForm';
+import ReplyList from '../ReplyList/ReplyList';
 
 const Reply = (props) => {
     
@@ -13,10 +15,29 @@ const Reply = (props) => {
     // }
     // //
 
+    const [entries, setReply] = useState([]);
+
+    useEffect(() => {
+        getAllReplies();
+    }, [])
+
+    async function getAllReplies(){
+        let response = await axios.get('http://localhost:3000/videopage/lEC3m-zpUuM/')
+        setReply(response.data)
+    }
+
+    async function addNewReply(newReply){
+        let response = await axios.post('http://localhost:3000/videopage/lEC3m-zpUuM/', newReply)
+        if(response.status === 201){
+            await getAllReplies();
+        }
+    }
+
     return ( 
         <div>
+            <ReplyForm addNewReply={addNewReply} />
             <h1>Replies</h1>
-            <ReplyForm />
+            <ReplyList parentReplies={entries} />
         </div>
      );
 }

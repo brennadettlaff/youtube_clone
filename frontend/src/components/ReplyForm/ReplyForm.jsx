@@ -6,16 +6,18 @@ import ReplyList from '../ReplyList/ReplyList';
 const ReplyForm = (props) => {
     
     const [user, setUser] = useState('');
+    const [reply, setReply] = useState('');
     const [comment_id, setComment_id] = useState('');
-    const [text, setText] = useState('');
 
     function handleSubmit(event) {
         event.preventDefault();
-        let newReply = {
+        const newReply = {
             user: user,
             comment_id: comment_id,
             text: text,
-        }
+        };
+        console.log(newReply)
+        props.addNewReply(newReply)
         
     }
 
