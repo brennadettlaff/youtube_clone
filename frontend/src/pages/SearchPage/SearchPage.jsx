@@ -4,14 +4,13 @@ import axios from "axios";
 import './SearchPage'
 
 
-
 const SearchPage = (props) => {
   
   let navigate = useNavigate();
 
   const [searchedVids, setSearchedVids] = useState([])
 
-  let searchURL = "https://www.googleapis.com/youtube/v3/search?q=" + props.data + "&key=AIzaSyBQVFM2XjDbQQtS3T0MdPfoGmgcztrBD50&part=snippet"
+  let searchURL = "https://www.googleapis.com/youtube/v3/search?q=" + props.data + "&key={APIkey}&part=snippet"
 
   useEffect(() => {
     fetchSearchedVideos();
@@ -23,19 +22,15 @@ const SearchPage = (props) => {
     setSearchedVids(response.data.items)
   };
 
-  const onClick = (event) =>{
-    event.preventDefault();
-    navigate('/videopage');
-  };
-
 
   return (
     <div>
       {searchedVids.map((element) => {
         return (
           <div>
-            <img src = {element.snippet.thumbnails.default.url} onClick={onClick}/>
+            <img src = {element.snippet.thumbnails.default.url} onClick={() => navigate(`/videopage/${element.id.videoId}`)}/>
             <h4>{element.snippet.title}</h4>
+            <h3>{element.id.videoId}</h3>
           </div>
         )
       })}

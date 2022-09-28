@@ -2,9 +2,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-
-
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -31,23 +28,17 @@ function App() {
     passedSearchTerm();
   })
 
-  // M7lc1UVf-VE
+
   function passedSearchTerm(search_term){
     let response = search_term 
     setData(response)
-
-    console.log(response)
   };
 
   return (
     <div>
       <Navbar />
       <SearchBar submittedSearchTerm={passedSearchTerm}/>
-      <VideoPlayer testVideo={data} />
-      <RelatedVideos />
-      <Navbar />
       <Routes>
-        
         <Route
           path="/"
           element={
@@ -59,7 +50,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/searchpage" element={<SearchPage data={data}/>}/>
-        <Route path="/videopage" element={<VideoPage />} />
+        <Route path="/videopage/:videoId" element={<VideoPage />} />
       </Routes>
       <Footer />
     </div>
