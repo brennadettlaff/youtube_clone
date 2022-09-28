@@ -38,6 +38,8 @@ function App() {
     <div>
       <Navbar />
       <SearchBar submittedSearchTerm={passedSearchTerm}/>
+      {/* <RelatedVideos data={data}/> */}
+
       <Routes>
         <Route
           path="/"
