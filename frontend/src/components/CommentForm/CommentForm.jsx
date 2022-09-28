@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import Comment from '../Comment/Comment';
 
 const CommentForm = (props) => {
     
-    const [user, setUser] = useState('');
     const [comment, setComment] = useState('');
-    const [videoId, setVideoId] = useState('');
+    const [likes, setLikes] = useState('');
+    const [dislikes, setDislikes] = useState('');
 
     function handleSubmit(event) {
         event.preventDefault();
         const newComment = {
-            user: user,
-            comment: comment,
-            video_Id: videoId,
+            video_id: "test",
+            text: comment,
+            likes: likes,
+            dislikes: dislikes,
         };
         console.log(newComment)
         props.addNewComment(newComment)
@@ -21,10 +21,6 @@ const CommentForm = (props) => {
 
     return ( 
         <form onSubmit={handleSubmit} className='form-grid'>
-            <div>
-                <label>User</label>
-                <input type='text' placeholder="User..." style={{margin: '5px'}} value={user} onChange={(event) => setUser(event.target.value)} />
-            </div>
             <div>
                 <label>Comment</label>
                 <input type='text' placeholder="Comment..." style={{margin: '5px'}} value={comment} onChange={(event) => setComment(event.target.value)} />

@@ -1,7 +1,6 @@
 import Comment from "../Comment/Comment";
 
 const CommentList = (props) => {
-    debugger
     return ( 
         <>
         <h1>test</h1>
