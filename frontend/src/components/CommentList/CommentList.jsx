@@ -1,10 +1,12 @@
+import Comment from "../Comment/Comment";
+
 const CommentList = (props) => {
     return ( 
         <table>
             <thead>
                 <tr>
                     <th>User</th>
-                    <th>Text</th>
+                    <th>Comment</th>
                 </tr>
             </thead>
             <tbody>
@@ -12,7 +14,7 @@ const CommentList = (props) => {
                 return (
                 <tr>
                     <td>{comment.user}</td>
-                    <td>{comment.text}</td>
+                    <td>{comment.comment}</td>
                 </tr>
                 );
                 
