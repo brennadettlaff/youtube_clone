@@ -5,7 +5,7 @@ const RelatedVideos = (props) => {
     
     const [relatedVids, setRelatedVideos] = useState([])
 
-    let relatedVideo = "https://www.googleapis.com/youtube/v3/search?relatedToVideoId=" + "M7lc1UVf-VE" + "&type=video&key=AIzaSyBQVFM2XjDbQQtS3T0MdPfoGmgcztrBD50"
+    let relatedVideo = "https://www.googleapis.com/youtube/v3/search?relatedToVideoId=" + props.testVideo + "&type=video&key=AIzaSyCkOwnACYtTMTuv-AY50DGVDGkVXZHg4TE"
     
     useEffect(() => {
         fetchRelatedVideos();
@@ -13,8 +13,8 @@ const RelatedVideos = (props) => {
 
     const fetchRelatedVideos = async () => {
         let response = await axios.get(relatedVideo)
-        console.log("Youtube related response: ",response.data)
-        setRelatedVideos(response.data)
+        console.log("Youtube related response: ",response.data.items)
+        setRelatedVideos(response.data.items)
 
     // const handleClick = (selectedVideoId) => {
     //     console.log(selectedVideoID)
@@ -26,9 +26,17 @@ const RelatedVideos = (props) => {
      return (
         <div>
             {relatedVids.map((element) => {
+                {console.log(element.id.videoId)}
                 return (
-                    <img scr = {element.snippet.thumbnails.default.url} onClick={()=>handleClick(element.videoID)} />
-                )
+                <>
+                    <iframe id="ytplayer" 
+                    type="text/html" 
+                    width="640" 
+                    height="360"
+                    src={"https://www.youtube.com/embed/" + element.id.videoId + "?autoplay=1&origin=http://example.com"}
+                    frameBorder="0"></iframe> 
+                </>
+                )    
             })}
         </div>
      );
