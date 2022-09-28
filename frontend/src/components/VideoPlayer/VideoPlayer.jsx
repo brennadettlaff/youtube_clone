@@ -4,7 +4,6 @@ import './VideoPlayer'
 const VideoPlayer = (props) => {
     return ( 
         <>
-        {console.log(props.data)}
         <iframe id="ytplayer" 
         type="text/html" 
         width="640" 

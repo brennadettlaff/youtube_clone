@@ -12,9 +12,10 @@ const CommentForm = (props) => {
         const newComment = {
             user: user,
             comment: comment,
-            videoId: videoId,
-        }
-        
+            video_Id: videoId,
+        };
+        console.log(newComment)
+        props.addNewComment(newComment)
 
     }
 

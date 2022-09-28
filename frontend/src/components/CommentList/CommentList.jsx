@@ -1,7 +1,10 @@
 import Comment from "../Comment/Comment";
 
 const CommentList = (props) => {
+    debugger
     return ( 
+        <>
+        <h1>test</h1>
         <table>
             <thead>
                 <tr>
@@ -21,6 +24,7 @@ const CommentList = (props) => {
             })}
             </tbody>
         </table>
+        </>
      );
 }
  

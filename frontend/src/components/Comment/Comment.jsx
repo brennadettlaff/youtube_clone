@@ -44,11 +44,32 @@ const Comment = (props) => {
     // console.log(newComment)
     // axios.post('http://127.0.0.1:8000/api/create/')
     // props.addNewCommentProperty(newComment)
+
+
+    const [entries, setComment] = useState([]);
+
+    useEffect(() => {
+        getAllComments();
+    }, [])
+
+    async function getAllComments(){
+        let response = await axios.get('http://localhost:3000/videopage/lEC3m-zpUuM/')
+        setComment(response.data)
+    }
+
+    async function addNewComment(newComment){
+        let response = await axios.post('http://localhost:3000/videopage/lEC3m-zpUuM/', newComment)
+        if(response.status === 201){
+            await getAllComments();
+        }
+    }
     
     return ( 
         <div>
+            <CommentForm addNewComment={addNewComment}/>
             <h1>Comments</h1>
-            <CommentForm />
+            <CommentList parentComments={entries}/>
+
         </div>
      );
 }
