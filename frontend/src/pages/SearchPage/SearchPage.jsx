@@ -10,7 +10,7 @@ const SearchPage = (props) => {
 
   const [searchedVids, setSearchedVids] = useState([])
 
-  let searchURL = "https://www.googleapis.com/youtube/v3/search?q=" + props.data + "&key={APIkey}&part=snippet"
+  let searchURL = "https://www.googleapis.com/youtube/v3/search?q=" + props.data + "&key=AIzaSyCkOwnACYtTMTuv-AY50DGVDGkVXZHg4TE&part=snippet"
 
   useEffect(() => {
     fetchSearchedVideos();

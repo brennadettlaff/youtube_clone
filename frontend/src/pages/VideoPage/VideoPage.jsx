@@ -13,7 +13,7 @@ const VideoPage = () => {
         <div>
         <VideoPlayer testVideo={useParams().videoId} />
         <Comment />
-        <RelatedVideos testVideo={'M7lc1UVf-VE'}/>
+        <RelatedVideos testVideo={useParams().videoId}/>
         </div>
      );
 }
