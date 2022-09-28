@@ -17,8 +17,7 @@ const Comment = (props) => {
         setComment(response.data);
     }
     //
-    const [Comment, setComment] = useState('');
-    const [user, setUser] = useState('');
+    
     // const [videoid, setVideo_id] = useState('');
     // const [text, setText] = useState('');
     // const [likes, setLikes] = useState('');

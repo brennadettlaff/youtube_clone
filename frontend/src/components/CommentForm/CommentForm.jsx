@@ -2,6 +2,23 @@ import React, { useState } from 'react';
 import Comment from '../Comment/Comment';
 
 const CommentForm = (props) => {
+    
+    const [Comment, setComment] = useState('');
+    const [user, setUser] = useState('');
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        const newComment = {
+            user: user,
+            Comment: Comment,
+            videoid: videoId,
+        }
+        
+        console.log(newComment)
+        axios.post('http://127.0.0.1:8000/api/create/')
+        props.addNewCommentProperty(newComment)
+    }
+
     return ( 
         <form onSubmit={handleSubmit} className='form-grid'>
         <label>User</label>
