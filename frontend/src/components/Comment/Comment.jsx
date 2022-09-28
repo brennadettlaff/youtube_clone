@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import VideoPlayer from '../VideoPlayer/VideoPlayer'; 
+import CommentList from '../CommentList/CommentList';
+import VideoPage from '../../pages/VideoPage/VideoPage';
+import CommentForm from '../CommentForm/CommentForm';
 
 const Comment = (props) => {
     
@@ -11,12 +14,12 @@ const Comment = (props) => {
 
     async function getAllComments(){
         let response = await axios.get('http://127.0.0.1:8000/api/get-comment/<str:video_id>/')
-        setComments(response.data);
+        setComment(response.data);
     }
     //
     const [Comment, setComment] = useState('');
-    // const [user, setUser] = useState('');
-    // const [video_id, setVideo_id] = useState('');
+    const [user, setUser] = useState('');
+    // const [videoid, setVideo_id] = useState('');
     // const [text, setText] = useState('');
     // const [likes, setLikes] = useState('');
     // const [dislikes, setDislikes] = useState('');
@@ -30,7 +33,7 @@ const Comment = (props) => {
         const newComment = {
             user: user,
             Comment: Comment,
-            video_id: props.testVideo,
+            videoid: videoId,
         }
         
         console.log(newComment)
@@ -41,6 +44,13 @@ const Comment = (props) => {
     return ( 
         <div>
             Comment
+        {/* <form onSubmit={handleSubmit} className='form-grid'>
+            <label>User</label>
+            <input type='text' placeholder="User..." style={{margin: '5px'}} value={user} onChange={(event) => setUser(event.target.value)} />
+            <label>Comment</label>
+            <input type='text' placeholder="Comment..." style={{margin: '5px'}} value={Comment} onChange={(event) => setComment(event.target.value)} />
+            <button type='submit' className='btn btn-secondary' style={{margin: '5px'}}>Add Comment</button>
+        </form> */}
         </div>
      );
 }
