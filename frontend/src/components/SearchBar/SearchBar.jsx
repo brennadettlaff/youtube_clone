@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
 import './SearchBar.css';
 
 const SearchBar = (props) => {
@@ -18,9 +18,10 @@ const SearchBar = (props) => {
     };
 
     return (
-        <form className='searchbar' onSubmit={handleSubmit}>
-            <input type='text' value={search_term} placeholder="Search" onChange={(event) => setSearchTerm(event.target.value)}/>
-            <input type='submit' value="Search"/>
+        <form class="input-group" onSubmit={handleSubmit} style={{margin: '15px'}}>
+            <input type='search'  class="form-control-rounded" value={search_term} placeholder="Search" aria-label="Search" aria-describedby="search-addon"
+            onChange={(event) => setSearchTerm(event.target.value)}/>
+            <button type="button" class="btn btn-outline-primary">search</button>
         </form>
     );
 }
