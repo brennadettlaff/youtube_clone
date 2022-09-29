@@ -11,7 +11,7 @@ const ReplyForm = (props) => {
     function handleSubmit(event) {
         event.preventDefault();
         const newReply = {
-            comment: props.addNewReply.comId,
+            comment_id: props.addNewReply.comId,
             text: reply,
         };
         console.log(newReply)
