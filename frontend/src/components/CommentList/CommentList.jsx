@@ -21,6 +21,7 @@ const CommentList = (props) => {
                     <tr>
                         <td>{user.username}</td>
                         <td>{comment.text}</td>
+                        <Reply parentComment={comment.id}/>
                     </tr>
                     );
                     
