@@ -6,7 +6,7 @@ const CommentList = (props) => {
     const [user, token] = useAuth();
     return ( 
         <>
-        <h1>test</h1>
+        {/* <h1>test</h1> */}
         <div class="table-responsive">
             <table className="table table-hover table-borderless">
                 <thead>

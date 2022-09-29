@@ -8,8 +8,8 @@ const VideoPlayer = (props) => {
         <div className='video-player-container'>
         <iframe id="ytplayer" 
         type="text/html" 
-        width="640" 
-        height="360"
+        width="800" 
+        height="450"
         src={"https://www.youtube.com/embed/" + props.testVideo + "?autoplay=1&origin=http://example.com"}
         frameBorder="0"></iframe>
         </div>

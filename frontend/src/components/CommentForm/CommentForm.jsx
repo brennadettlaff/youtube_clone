@@ -24,7 +24,7 @@ const CommentForm = (props) => {
     return ( 
         <form onSubmit={handleSubmit} className='form-grid'>
             <div>
-                <input type='text' placeholder="Comment..." style={{margin: '5px'}} value={comment} onChange={(event) => setComment(event.target.value)} />
+                <input type='text' class='form-control input-lg' placeholder="Comment..." style={{margin: '5px'}} value={comment} onChange={(event) => setComment(event.target.value)} />
             </div>
             <button type='submit' style={{margin: '5px'}}>Add Comment</button>
     </form>

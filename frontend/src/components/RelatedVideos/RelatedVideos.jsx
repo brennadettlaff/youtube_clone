@@ -27,7 +27,7 @@ const RelatedVideos = (props) => {
                 return (
                     <>
                     <div className='thumbnail-box'>
-                        <img className='thumbnail-img' src = {element.snippet.thumbnails.default.url} onClick={() => navigate(`/videopage/${element.id.videoId}`)}/>
+                        <img className='thumbnail-img' src = {element.snippet.thumbnails.medium.url} onClick={() => navigate(`/videopage/${element.id.videoId}`)}/>
                         <h4 className='title'>{element.snippet.title}</h4>
                         {/* <h3>{element.id.videoId}</h3> */}
                     </div>
