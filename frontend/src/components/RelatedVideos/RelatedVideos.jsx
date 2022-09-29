@@ -9,7 +9,7 @@ const RelatedVideos = (props) => {
 
     const [relatedVids, setRelatedVideos] = useState([])
 
-    let relatedVideo = "https://www.googleapis.com/youtube/v3/search?relatedToVideoId=" + props.testVideo + "&type=video&key=AIzaSyCkOwnACYtTMTuv-AY50DGVDGkVXZHg4TE&part=snippet"
+    let relatedVideo = "https://www.googleapis.com/youtube/v3/search?relatedToVideoId=" + props.testVideo + "&type=video&key=AIzaSyBQVFM2XjDbQQtS3T0MdPfoGmgcztrBD50&part=snippet"
     
     useEffect(() => {
         fetchRelatedVideos();
@@ -30,7 +30,7 @@ const RelatedVideos = (props) => {
                     <>
                     <div className='thumbnail-box'>
                         <img className='thumbnail-img' src = {element.snippet.thumbnails.default.url} onClick={() => navigate(`/videopage/${element.id.videoId}`)}/>
-                        <h4>{element.snippet.title}</h4>
+                        <h4 className='title'>{element.snippet.title}</h4>
                         {/* <h3>{element.id.videoId}</h3> */}
                     </div>
                     </>
