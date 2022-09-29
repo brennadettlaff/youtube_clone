@@ -1,4 +1,6 @@
+import React from 'react';
 import Comment from "../Comment/Comment";
+import { useParams } from "react-router-dom";
 
 const CommentList = (props) => {
     return ( 
@@ -12,10 +14,10 @@ const CommentList = (props) => {
                 </tr>
             </thead>
             <tbody>
-            {props.parentComments.map((comment) => {
+            {props.parentEntries.map((comment) => {
                 return (
                 <tr>
-                    <td>{comment.user}</td>
+                    <td>user</td>
                     <td>{comment.comment}</td>
                 </tr>
                 );

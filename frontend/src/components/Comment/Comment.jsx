@@ -14,18 +14,20 @@ const Comment = (props) => {
 
 
     async function getAllComments(){
-        let response = await axios.get('http://127.0.0.1:8000/api/comment/get-comment/test', {
+        let response = await axios.get('http://127.0.0.1:8000/api/comment/get-comment/1s58rW0_LN4', {
             headers: {
                 Authorization: "Bearer " + token,
               },
         })
+        console.log(response.data)
+        debugger
         setComment(response.data)
     }
 
     async function addNewComment(newComment){
-        let response = await axios.post('http://127.0.0.1:8000/api/comment/create/',  {headers: {
+        let response = await axios.post('http://127.0.0.1:8000/api/comment/create/', newComment,  {headers: {
             Authorization: "Bearer " + token,
-          }}, newComment)
+          }})
         if(response.status === 201){
             await getAllComments();
         }
@@ -35,7 +37,7 @@ const Comment = (props) => {
         <div>
             <CommentForm addNewComment={addNewComment}/>
             <h1>Comments</h1>
-            <CommentList parentComments={entries}/>
+            <CommentList parentEntries={entries}/>
 
         </div>
      );

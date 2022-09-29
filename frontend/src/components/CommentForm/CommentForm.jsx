@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const CommentForm = (props) => {
-    
+    let vidId = useParams().videoId
+    console.log(vidId)
     const [comment, setComment] = useState('');
-    const [likes, setLikes] = useState('');
-    const [dislikes, setDislikes] = useState('');
+    const [likes, setLikes] = useState(0);
+    const [dislikes, setDislikes] = useState(0);
 
     function handleSubmit(event) {
         event.preventDefault();
         const newComment = {
-            video_id: "test",
+            video_id: vidId,
             text: comment,
             likes: likes,
             dislikes: dislikes,
         };
-        console.log(newComment)
         props.addNewComment(newComment)
 
     }
