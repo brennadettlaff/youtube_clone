@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './RelatedVideos.css'
 
 const RelatedVideos = (props) => {
     
@@ -21,9 +22,8 @@ const RelatedVideos = (props) => {
 
     };
     
-
-     return (
-        <div>
+    return (
+        <div className='thumbnail-gallery'>
             {relatedVids.map((element) => {
                 {console.log(element.id.videoId)}
                 return (
@@ -35,7 +35,7 @@ const RelatedVideos = (props) => {
                 )    
             })}
         </div>
-     );
+    );
 }
  
 export default RelatedVideos;
