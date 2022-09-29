@@ -2,7 +2,7 @@ import React from "react";
 import useAuth from "../../hooks/useAuth";
 
 const ReplyList = (props) => {
-    const [user, token] = useAuth();
+    const [user] = useAuth();
     console.log(props)
     return ( 
         <div class="table-responsive">

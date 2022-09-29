@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
 
 const Reply = (props) => {
-    const [user, token] = useAuth();
+    const [token] = useAuth();
     const [entries, setReply] = useState([]);
 
     let commentId = props.parentComment

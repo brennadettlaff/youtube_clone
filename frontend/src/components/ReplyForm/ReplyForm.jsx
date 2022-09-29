@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import Reply from '../Reply/Reply';
-import Comment from '../Comment/Comment';
-import ReplyList from '../ReplyList/ReplyList';
 
 const ReplyForm = (props) => {
     
