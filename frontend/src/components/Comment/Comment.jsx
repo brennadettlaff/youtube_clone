@@ -40,7 +40,6 @@ const Comment = () => {
             <CommentForm addNewComment={addNewComment}/>
             <h1>Comments</h1>
             <CommentList parentEntries={entries}/>
-
         </div>
      );
 }

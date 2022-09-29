@@ -1,11 +1,11 @@
 import React from 'react';
+import Reply from '../Reply/Reply';
 import useAuth from '../../hooks/useAuth';
 
 const CommentList = (props) => {
     const [user, token] = useAuth();
     return ( 
         <>
-        <h1>test</h1>
         <table>
             <thead>
                 <tr>
@@ -19,6 +19,7 @@ const CommentList = (props) => {
                 <tr>
                     <td>{user.username}</td>
                     <td>{comment.text}</td>
+                    <Reply parentComment={comment.id}/>
                 </tr>
                 );
                 

@@ -16,7 +16,6 @@ const RelatedVideos = (props) => {
 
     const fetchRelatedVideos = async () => {
         let response = await axios.get(relatedVideo)
-        console.log("Youtube related response: ",response.data)
         setRelatedVideos(response.data.items)
 
     };
@@ -25,7 +24,6 @@ const RelatedVideos = (props) => {
      return (
         <div>
             {relatedVids.map((element) => {
-                {console.log(element.id.videoId)}
                 return (
                     <>
                     <img src = {element.snippet.thumbnails.default.url} onClick={() => navigate(`/videopage/${element.id.videoId}`)}/>
