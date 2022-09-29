@@ -1,5 +1,6 @@
 import React, { useReducer, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './CommentForm.css'
 
 const CommentForm = (props) => {
     let vidId = useParams().videoId
@@ -25,7 +26,7 @@ const CommentForm = (props) => {
             <div>
                 <input type='text' placeholder="Comment..." style={{margin: '5px'}} value={comment} onChange={(event) => setComment(event.target.value)} />
             </div>
-            <button type='submit' className='btn btn-secondary' style={{margin: '5px'}}>Add Comment</button>
+            <button type='submit' style={{margin: '5px'}}>Add Comment</button>
     </form>
      );
 }

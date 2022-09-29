@@ -1,5 +1,4 @@
 .search-container {
-    background-color: silver;
     margin: 0;
     display:flex;
     flex-wrap: wrap;
@@ -9,11 +8,8 @@
 
 
 .search-thumbnails {
-    border-style: solid;
-    border-color: black;
     border-width: 2px;
     margin-bottom: 10px;
-
 }
 
 .size-thumbnails {
