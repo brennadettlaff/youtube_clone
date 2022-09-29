@@ -1,0 +1,25 @@
+.search-container {
+    background-color: silver;
+    margin: 0;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+
+
+.search-thumbnails {
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    margin-bottom: 10px;
+
+}
+
+.size-thumbnails {
+    border-style: inset;
+    border-color: aqua;
+    border-width: 5px;
+    width: 480px;
+    height: 270px;
+}
