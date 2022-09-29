@@ -6,20 +6,23 @@ ul {
 
 li {
   font-size: 1.25rem;
+  color: #17c2b1;
 }
 
 .navBar {
   background: #17c2b1;
   box-shadow: 4px 2px 5px gray;
-  color: white;
+  color: #17c2b1;
   margin-bottom: 2rem;
   padding: 1.5rem 2rem;
+  background: -webkit-linear-gradient(to left, rgba(255, 255, 255, 1), rgba(23, 194, 177, 1));
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(23, 194, 177, 1))
 }
 
 .navBar button {
   background: transparent;
-  border: 2px solid white;
-  color: white;
+  border: 2px solid #17c2b1;
+  color: #17c2b1;
   padding: 0.4rem 0.5rem;
 }
 

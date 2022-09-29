@@ -19,9 +19,9 @@ const SearchBar = (props) => {
 
     return (
         <form class="input-group" onSubmit={handleSubmit} style={{margin: '15px'}}>
-            <input type='search'  class="form-control-rounded" value={search_term} placeholder="Search" aria-label="Search" aria-describedby="search-addon"
-            onChange={(event) => setSearchTerm(event.target.value)}/>
-            <button type="button" class="btn btn-outline-primary">search</button>
+            <input type='search' class="form-control" id="commentBar" className="form-control-rounded" value={search_term} placeholder="Search" 
+            aria-label="Search" aria-describedby="search-addon" onChange={(event) => setSearchTerm(event.target.value)}/>
+            <button type="button" >search</button>
         </form>
     );
 }
