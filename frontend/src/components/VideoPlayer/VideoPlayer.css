@@ -1,5 +1,12 @@
-.thumbnail-gallery {
-    display:flex;
-    flex-direction: column;
-    gap: 8px;
+.video-player-container {
+    background-color: black;
+    border-style: solid;
+    border-top-color: #6E6E6E;
+    border-left-color: #6E6E6E;
+    border-right-color: #17C3B2;
+    border-bottom-color: #17C3B2;
+    box-shadow: 5px 8px 40px #6E6E6E;
+    border-width: 6px;
+    border-radius: 8px;
+    cursor: pointer;
 }
