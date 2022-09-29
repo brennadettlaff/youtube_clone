@@ -5,18 +5,20 @@ const ReplyList = (props) => {
     const [user, token] = useAuth();
     console.log(props)
     return ( 
-        <table>
-            <tbody>
-            {props.parentReplies.map((reply) => {
-                return (
-                <tr>
-                    <td>{user.username}</td>
-                    <td>{reply.text}</td>
-                </tr>
-                );
-            })}
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table className="table table-hover table-borderless">
+                <tbody>
+                {props.parentReplies.map((reply) => {
+                    return (
+                    <tr>
+                        <td>{user.username}</td>
+                        <td>{reply.text}</td>
+                    </tr>
+                    );
+                })}
+                </tbody>
+            </table>
+        </div>
      );
 }
  

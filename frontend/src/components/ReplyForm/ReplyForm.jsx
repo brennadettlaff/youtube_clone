@@ -21,9 +21,9 @@ const ReplyForm = (props) => {
     return ( 
         <form onSubmit={handleSubmit} className='form-grid'>
             <div>
-                <input type='text' placeholder="Reply..." style={{margin: '5px'}} value={reply} onChange={(event) => setReply(event.target.value)} />
+                <input type='text' class='form-control input-lg' placeholder="Reply..." style={{margin: '5px'}} value={reply} onChange={(event) => setReply(event.target.value)} />
             </div>
-            <button type='submit' className='btn btn-secondary' style={{margin: '5px'}}>Reply</button>
+            <button type='submit' style={{margin: '5px'}}>Reply</button>
         </form>
      );
 }
