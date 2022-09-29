@@ -1,42 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import ReplyForm from '../ReplyForm/ReplyForm';
 import ReplyList from '../ReplyList/ReplyList';
+import useAuth from '../../hooks/useAuth';
+import axios from 'axios';
 
 const Reply = (props) => {
-    
-    // // Use Effect and async function will need to be moved to app.js file
-    // useEffect(() => {
-    //     getAllReplies();
-    // }, [])
-    
-    // async function getAllReplies(){
-    //     let response = await axios.get('http://127.0.0.1:8000/api/view/<int:comment>/');
-    //     setReplies(response.data);
-    // }
-    // //
-
+    const [user, token] = useAuth();
     const [entries, setReply] = useState([]);
+
+    let commentId = props.parentComment
 
     useEffect(() => {
         getAllReplies();
     }, [])
 
     async function getAllReplies(){
-        let response = await axios.get('http://localhost:3000/videopage/lEC3m-zpUuM/')
+        let response = await axios.get(`http://127.0.0.1:8000/api/reply/view/${commentId}/`, {headers: {
+            Authorization: "Bearer " + token,
+          }})
         setReply(response.data)
     }
 
     async function addNewReply(newReply){
-        let response = await axios.post('http://localhost:3000/videopage/lEC3m-zpUuM/', newReply)
+        let response = await axios.post('http://127.0.0.1:8000/api/reply/add/', newReply, {headers: {
+            Authorization: "Bearer " + token,
+          }})
         if(response.status === 201){
             await getAllReplies();
         }
     }
 
+    const replyPass = {
+        addReplyFunction: addNewReply,
+        comId: commentId
+    }
+
     return ( 
         <div>
-            <ReplyForm addNewReply={addNewReply} />
-            <h1>Replies</h1>
+            <ReplyForm addNewReply={replyPass} />
             <ReplyList parentReplies={entries} />
         </div>
      );

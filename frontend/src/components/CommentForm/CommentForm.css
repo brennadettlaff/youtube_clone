@@ -1,28 +1,13 @@
+button {
+    background-color: transparent;
+    border: 2px solid #17c2b1;
+    color: #17c2b1;
+    font-size: 1rem;
+    font-family: inherit;
+    max-width: 100px;
+    padding: 0.5rem 0.5rem;
+  }
+
 .form-grid {
-    display:flex;
-    justify-content: space-between;
-    padding: 1em;
-    padding-left: 0;
-}
-
-.form-container {
-    margin-top: 5px;
-}
-
-.form-field {
-    width: 100%;
-    padding: 0px 325px 0px 0px;
-    border-style: solid;
-    border-radius: 5px;
-    border-color: #6E6E6E;
-    border-width: 1px;
-}
-
-
-.button {
-    background-color: #6E6E6E;
-    border-radius: 10px;
-    color: #0A0A0A;
-    border-color: #6E6E6E;
-    font-size: 12px;
+    display: grid;
 }

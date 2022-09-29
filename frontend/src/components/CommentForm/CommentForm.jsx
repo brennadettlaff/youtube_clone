@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './CommentForm.css';
+import './CommentForm.css'
 
 const CommentForm = (props) => {
     let vidId = useParams().videoId
+    const [id] = useState(0)
     const [comment, setComment] = useState('');
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
@@ -11,6 +12,7 @@ const CommentForm = (props) => {
     function handleSubmit(event) {
         event.preventDefault();
         const newComment = {
+            id: id,
             video_id: vidId,
             text: comment,
             likes: likes,
@@ -21,11 +23,11 @@ const CommentForm = (props) => {
 
     return ( 
         <form onSubmit={handleSubmit} className='form-grid'>
-            <div className='form-container'>
-                <input type='text' placeholder="Comment..." style={{margin: '5px'}} value={comment} onChange={(event) => setComment(event.target.value)} className='form-field'/>
+            <div>
+                <input type='text' placeholder="Comment..." style={{margin: '5px'}} value={comment} onChange={(event) => setComment(event.target.value)} />
             </div>
-            <button type='submit' className='button' style={{margin: '5px'}}>Add Comment</button>
-        </form>
+            <button type='submit' style={{margin: '5px'}}>Add Comment</button>
+    </form>
      );
 }
  
