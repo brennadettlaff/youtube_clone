@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import CommentList from '../CommentList/CommentList';
 import CommentForm from '../CommentForm/CommentForm';
 import useAuth from '../../hooks/useAuth';
 
-const Comment = (props) => {
+const Comment = () => {
     const [user, token] = useAuth();
     const [entries, setComment] = useState([]);
+
+    let vidId = useParams().videoId
 
     useEffect(() => {
         getAllComments();
@@ -14,13 +17,12 @@ const Comment = (props) => {
 
 
     async function getAllComments(){
-        let response = await axios.get('http://127.0.0.1:8000/api/comment/get-comment/1s58rW0_LN4', {
+        let response = await axios.get(`http://127.0.0.1:8000/api/comment/get-comment/${vidId}/`, {
             headers: {
                 Authorization: "Bearer " + token,
               },
         })
         console.log(response.data)
-        debugger
         setComment(response.data)
     }
 

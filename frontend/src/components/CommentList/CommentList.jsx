@@ -1,8 +1,8 @@
 import React from 'react';
-import Comment from "../Comment/Comment";
-import { useParams } from "react-router-dom";
+import useAuth from '../../hooks/useAuth';
 
 const CommentList = (props) => {
+    const [user, token] = useAuth();
     return ( 
         <>
         <h1>test</h1>
@@ -17,8 +17,8 @@ const CommentList = (props) => {
             {props.parentEntries.map((comment) => {
                 return (
                 <tr>
-                    <td>user</td>
-                    <td>{comment.comment}</td>
+                    <td>{user.username}</td>
+                    <td>{comment.text}</td>
                 </tr>
                 );
                 

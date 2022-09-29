@@ -5,14 +5,12 @@ import ReplyList from '../ReplyList/ReplyList';
 
 const ReplyForm = (props) => {
     
-    const [user, setUser] = useState('');
     const [reply, setReply] = useState('');
     const [comment_id, setComment_id] = useState('');
 
     function handleSubmit(event) {
         event.preventDefault();
         const newReply = {
-            user: user,
             comment_id: comment_id,
             text: text,
         };
@@ -23,10 +21,6 @@ const ReplyForm = (props) => {
 
     return ( 
         <form onSubmit={handleSubmit} className='form-grid'>
-            <div>
-                <label>User</label>
-                <input type='text' placeholder="User..." style={{margin: '5px'}} value={user} onChange={(event) => setUser(event.target.value)} />
-            </div>
             <div>
                 <label>Reply</label>
                 <input type='text' placeholder="Reply..." style={{margin: '5px'}} value={reply} onChange={(event) => setReply(event.target.value)} />
